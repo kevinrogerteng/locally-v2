@@ -32,6 +32,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test, :development do
+  gem 'shoulda-matchers', '~> 2.5.0'
+  gem 'capybara', '~> 2.2.1'
+  gem 'rspec-rails'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'pry'
+  gem 'dotenv-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
