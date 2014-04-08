@@ -6,9 +6,11 @@ describe User do
   end
 
   it 'authenticates with matching email and password' do
-    user = create(:user, email_address: "sample@example.com" ,password: "password")
+    user = create(:user, email: "sample@example.com" ,password: "password", password_confirmation: "password")
     User.authenticate("sample@example.com", "password").should eq(user)
   end
+
+  it 'checks to see if password is confirmed'
 
   it 'does not authenticate with incorrect password'
 
