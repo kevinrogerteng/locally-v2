@@ -22,6 +22,7 @@ end
 
 group :test, :development do
   gem 'shoulda-matchers', '~> 2.5.0'
+  gem 'factory_girl', '~> 4.4.0'
   gem 'capybara', '~> 2.2.1'
   gem 'rspec-rails'
   gem 'guard-rails'
