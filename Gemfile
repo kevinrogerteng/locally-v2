@@ -22,8 +22,8 @@ end
 
 group :test, :development do
   gem 'shoulda-matchers', '~> 2.5.0'
-  gem 'factory_girl', '~> 4.4.0'
-  gem 'faker', '~> 1.3.0'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'ffaker', '~> 1.24.0'
   gem 'capybara', '~> 2.2.1'
   gem 'rspec-rails'
   gem 'guard-rails'
@@ -33,7 +33,7 @@ group :test, :development do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
