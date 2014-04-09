@@ -13,7 +13,18 @@ describe "Trip" do
       get trips_path
       response.status.should == 200
     end
-    
-    it "should return trip(s) that belongs to the signed in user"
+
+    # it "should respond as JSON" do
+    #   get '/trips.json'
+    #   result = JSON.parse(response.body)
+    #   result.should be_kind_of Array
+    #   result['trips'].length.should eq(1)
+    # end
+
+    # it "should return trip(s) that belongs to the signed in user" do
+    #   get '/trips.json'
+    #   result = JSON.parse(response.body)
+
+    # end
 
 end
