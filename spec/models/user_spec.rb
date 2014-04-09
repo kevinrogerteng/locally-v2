@@ -24,6 +24,18 @@ describe User do
     FactoryGirl.build(:user, email: "sample@example.com", screen_name: nil, password: "password", password_confirmation: "password").should_not be_valid
   end
 
+  it 'validates uniqueness of email address' do
+    create(:user, email: "sample@example.com" ,password: "password", password_confirmation: "password")
+    new_user = User.new( email: "sample@example.com",password: "password", password_confirmation: "password")
+    expect(new_user).to have(1).errors_on(:email)
+  end
+
+  it 'validates uniqueness of screen name' do
+    create(:user, email: "sample@example.com" ,screen_name: "pengusan", password: "password", password_confirmation: "password")
+    new_user = User.new( email: "anothersample@example.com", screen_name: "pengusan", password: "password", password_confirmation: "password")
+    expect(new_user).to have(1).errors_on(:screen_name)
+  end
+
   it {should have_many(:trips)}
-  
+
 end

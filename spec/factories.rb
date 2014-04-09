@@ -7,8 +7,10 @@ FactoryGirl.define do
     f.password_confirmation "password"
   end
 
-  factory :invalid_email do |f|
-    f.email nil
+  factory :trip do |f|
+    f.name {Faker::Lorem.word}
+    f.destination {Faker::Address.city}
+    f.completed false
   end
 
 end

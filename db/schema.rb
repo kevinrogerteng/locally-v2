@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20140408225511) do
 
   create_table "trips", force: true do |t|
     t.string   "name"
+    t.string   "destination"
+    t.text     "description"
+    t.boolean  "completed",   default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
