@@ -21,4 +21,6 @@ describe Trip do
 
   it {should belong_to(:user)}
 
+  it {should have_many(:activities).dependent(:destroy)}
+
 end

@@ -36,6 +36,6 @@ describe User do
     expect(new_user).to have(1).errors_on(:screen_name)
   end
 
-  it {should have_many(:trips)}
+  it {should have_many(:trips).dependent(:destroy)}
 
 end

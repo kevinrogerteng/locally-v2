@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :trips
+
+  has_many :trips, dependent: :destroy
+
   has_secure_password
 
   validates :screen_name, uniqueness: true, presence: true
