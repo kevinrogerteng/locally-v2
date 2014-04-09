@@ -11,5 +11,16 @@ require 'spec_helper'
 #   end
 # end
 describe SessionsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  # describe "#sign_in" do
+  
+  #   it 'sets current user to user signed in' do
+  #     user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
+      
+  #   end
+
+  #   it 'creates a token for for signed in user'
+
+  # end
+
 end

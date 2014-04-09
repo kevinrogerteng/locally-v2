@@ -1,8 +1,5 @@
 Locallyv2::Application.routes.draw do
-  
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
+
   resources :sites, only:[ :index ]
   resources :trips #:defaults => {:format => 'json'}
 
@@ -10,6 +7,8 @@ Locallyv2::Application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
   end
 
+  resources :users, only:[:new, :create, :edit, :show, :destroy]
+  
   root "site#index"
   
 end

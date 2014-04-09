@@ -1,17 +1,38 @@
 require 'spec_helper'
 
 describe "User" do
-  before (:each) do 
-    @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
-  end
 
   describe "GET request for user profile page at /user/id.json" do 
-    it 'should be successful'
-    it 'should include user name'
+
+    context 'given a user id' do
+
+      before (:each) do 
+        @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
+      end
+
+      it 'should be successful' do
+        get user_path(@user)
+        response.status.should == 200
+      end
+
+      it 'should include user email address' do
+        json = { :format => 'json'}
+        get user_path(@user), json
+        result = JSON.parse(response.body)
+        result["email"].should eq("sample@example.com")
+      end
+
+    end
+    
   end
 
-  describe "POST request for user sign-up at /user.json" do
-    it 'should be successful'
+  describe "POST JSON with /posts.json on create method" do
+    
+    it 'should be successful' do
+      post users_path user: {email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password"}
+      response.status.should == 200
+    end
+
   end
 
 end
