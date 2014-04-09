@@ -14,6 +14,11 @@ describe Trip do
     FactoryGirl.build(:trip, destination: nil).should_not be_valid
   end
 
+  it 'should set completed attribute to false upon creation' do
+    new_trip = FactoryGirl.build(:trip)
+    expect(new_trip.completed).to eq(false)
+  end
+
   it {should belong_to(:user)}
 
 end
