@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-  def new
-    respond_to do |f|
-        f.html {render :layout => false}
-        f.json {render :json }
-    end
-  end
 
   def create
     respond_to do |f|
@@ -30,9 +24,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    respond_to do |f|
-        f.html {render :layout => false}
-        f.json {render :json }
+    user = User.find(params[:id])
+    if user.destroy
+      render :json => { :success => "Account deleted"}
     end
+
   end
 end

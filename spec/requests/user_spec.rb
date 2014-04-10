@@ -35,4 +35,18 @@ describe "User" do
 
   end
 
+  describe "DELETE JSON with /posts.json on destroy method" do
+
+    before (:each) do 
+        @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
+    end
+
+    it 'should be successful' do
+      json = { :format => 'json'}
+      delete user_path @user, json
+      response.status.should == 200
+    end
+
+  end
+
 end

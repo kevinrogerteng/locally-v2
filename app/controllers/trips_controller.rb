@@ -12,12 +12,10 @@ class TripsController < ApplicationController
           :user => user
           }
         }
-        #f.json {render :json => @posts.as_json(:include=> [:tickets, :user])}
     end
   end
 
   def show
-
     trip = Trip.find(params[:id])
 
     respond_to do |f|
@@ -25,6 +23,5 @@ class TripsController < ApplicationController
       f.json {render :json => trip.as_json(:include => [:activities])}
       #f.json {render :json => @posts.as_json(:include=> [:tickets, :user])}
     end
-
   end
 end

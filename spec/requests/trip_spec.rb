@@ -58,8 +58,20 @@ describe "Trip" do
       response.status.should == 200
     end
 
-    it 'should return the selected trip'
-    it 'should return activities'
+    it 'should return the selected trip as JSON' do
+      json = { :format => 'json'}
+      get trip_path(@trip), json
+      result = JSON.parse(response.body)
+      result['name'].should eq(@trip.name)
+    end
+
+    it 'should return activities' do
+      json = { :format => 'json'}
+      get trip_path(@trip), json
+      result = JSON.parse(response.body)
+      result['activities'].should_not be_nil
+      result['activities'].should be_kind_of Array
+    end
 
   end
 
