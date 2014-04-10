@@ -1,17 +1,12 @@
 class UsersController < ApplicationController
 
   def create
-    respond_to do |f|
-        f.html {render :layout => false}
-        f.json {render :json }
-    end
-  end
+    user = User.new(user_params)
 
-  def edit
-    respond_to do |f|
-        f.html {render :layout => false}
-        f.json {render :json }
+    if user.save
+      render :json => { :success => "Welcome!"}
     end
+
   end
 
   def show
@@ -23,6 +18,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    render :json => { 
+      :success => "Account Updated",
+      :updates => @user
+    }
+
+  end
+
   def destroy
     user = User.find(params[:id])
     if user.destroy
@@ -30,4 +36,11 @@ class UsersController < ApplicationController
     end
 
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :screen_name, :password, :password_confirmation, :hometown)
+  end
+
 end

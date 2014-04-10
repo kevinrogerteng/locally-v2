@@ -5,6 +5,7 @@ describe "Trip" do
   before (:each) do 
     @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
     @trip = create(:trip, user_id: @user.id)
+    current_user = @user
   end
 
   describe "GET JSON with /trips.json ON index method" do
@@ -72,6 +73,17 @@ describe "Trip" do
       result['activities'].should_not be_nil
       result['activities'].should be_kind_of Array
     end
+
+  end
+
+  describe "POST JSON with /trips.json ON create method" do
+
+    it 'should be successful' do
+      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption"}
+      response.status.should == 200
+    end
+
+    it 'should create a new trip'
 
   end
 
