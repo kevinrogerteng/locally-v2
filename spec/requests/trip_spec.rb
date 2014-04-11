@@ -36,7 +36,7 @@ describe "Trip" do
 
     before :each do
       json = { :format => 'json'}
-      get trip_path(@trip), json
+      get trip_path @trip, json
     end
 
     it 'should be successful' do
@@ -89,11 +89,36 @@ describe "Trip" do
 
   end
 
-  describe "DELET JSON with /trips.json on DESTROY method" do
+  describe "PATCH JSON with /trips/:id.json on UPDATE method" do
+    context "Given a trip id" do
+
+      before :each do
+        @params = {}
+        @params[:name] = "some new name"
+        patch trip_path @trip, :trip => @params.as_json
+      end
+
+      it 'should be successful' do
+        response.status.should == 200
+      end
+
+      it 'should persist updates' do
+        result = JSON.parse(response.body)
+        result['updates']['name'].should eq('some new name')
+      end
+
+      it 'should return a sucess message' do
+        result = JSON.parse(response.body)
+        result['success'].should eq('Trip Updated!')
+      end
+    end
+  end
+
+  describe "DELETE JSON with /trips.json on DESTROY method" do
 
     before :each do
       json = { :format => 'json'}
-      delete trip_path(@trip), json
+      delete trip_path @trip, json
     end
     it 'should be successful' do
       response.status.should == 200

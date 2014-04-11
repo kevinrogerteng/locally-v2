@@ -17,11 +17,11 @@ class UsersController < ApplicationController
 
   def update
 
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
+    user = User.find(params[:id])
+    user.update_attributes(user_params)
     render :json => { 
       :success => "Account Updated",
-      :updates => @user
+      :updates => user
     }
 
   end

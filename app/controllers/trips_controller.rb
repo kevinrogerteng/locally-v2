@@ -32,6 +32,16 @@ class TripsController < ApplicationController
     end
   end
 
+  def update
+    trip = Trip.find(params[:id])
+    trip.update_attributes(trip_params)
+    render :json => { 
+      :success => "Trip Updated!",
+      :updates => trip
+    }
+
+  end
+
   def destroy
     trip = Trip.find(params[:id])
     if trip.destroy
