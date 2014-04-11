@@ -16,10 +16,14 @@ class TripsController < ApplicationController
   end
 
   def create
-    new_trip = current_user.trips.new(trip_params)
+
+    new_trip = Trip.new(trip_params)
 
     if new_trip.save
-      render :json => {:success => "Trip Created"}
+      render :json => {
+        :success => "Trip Created",
+        :new_trip => new_trip
+      }
     end
   end
 
@@ -32,9 +36,16 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find(params[:id])
+    if trip.destroy
+      render :json => {:success => "Trip Deleted"}
+    end
+  end
+
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :destination, :description, :completed)
+    params.require(:trip).permit(:name, :destination, :description, :completed, :user_id)
   end
 end

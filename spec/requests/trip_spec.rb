@@ -5,7 +5,6 @@ describe "Trip" do
   before (:each) do 
     @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
     @trip = create(:trip, user_id: @user.id)
-    current_user = @user
   end
 
   describe "GET JSON with /trips.json ON index method" do
@@ -79,12 +78,46 @@ describe "Trip" do
   describe "POST JSON with /trips.json ON create method" do
 
     it 'should be successful' do
-      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption"}
+      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption", user_id: @user.id}
       response.status.should == 200
     end
 
-    it 'should create a new trip'
+    it 'should return the new trip as JSON' do
+      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption", user_id: @user.id}
+      result = JSON.parse(response.body)
+      result['new_trip']['name'].should eq('First Trip')
+    end
+
+    it 'should return a success message as JSON' do
+      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption", user_id: @user.id}
+      result = JSON.parse(response.body)
+      result['success'].should eq('Trip Created')
+    end
+
+    it 'should be created with completed as false' do
+      post trips_path trip: {name: "First Trip", destination: "San Francisco", desciption: "some desciption", user_id: @user.id}
+      result = JSON.parse(response.body)
+      result['new_trip']['completed'].should be_false
+    end
 
   end
 
+  describe "DELET JSON with /trips.json on DESTROY method" do
+    it 'should be successful' do
+      json = { :format => 'json'}
+      delete trip_path(@trip), json
+      response.status.should == 200
+    end
+
+    it 'should return success message' do
+      json = { :format => 'json'}
+      delete trip_path(@trip), json
+      result = JSON.parse(response.body)
+      result['success'].should eq("Trip Deleted")
+    end
+  end
+
 end
+
+
+
