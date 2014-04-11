@@ -3,7 +3,7 @@ Locallyv2::Application.routes.draw do
   resources :sites, only:[ :index ]
 
   resources :trips do
-    resources :activities, only: [:create, :show, :update, :destroy]
+    resources :activities, only: [:index, :create, :show, :update, :destroy]
   end
 
   scope(path_names: {new: 'sign_in'}) do
