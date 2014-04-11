@@ -8,16 +8,15 @@ describe "User" do
 
       before (:each) do 
         @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
+        json = { :format => 'json'}
+        get user_path(@user), json
       end
 
       it 'should be successful' do
-        get user_path(@user)
         response.status.should == 200
       end
 
       it 'should include user email address' do
-        json = { :format => 'json'}
-        get user_path(@user), json
         result = JSON.parse(response.body)
         result["email"].should eq("sample@example.com")
       end
