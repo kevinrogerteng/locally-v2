@@ -16,7 +16,5 @@ describe Activity do
     activity = FactoryGirl.build(:activity)
     expect(activity.completed).to eq(false)
   end
-
-  it 'should check business URL to be active'
   
 end
