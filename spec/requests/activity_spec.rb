@@ -76,4 +76,47 @@ describe "Activity" do
       end
 
     end
+
+    describe 'PATCH JSON with trips/:trip_id/activities/:id.json on UPDATE method' do
+      context 'given a trip id and an activity id' do
+        before :each do
+          @params = {}
+          @params[:name] = "some new name"
+          patch trip_activity_path @trip, @activity, :activity => @params.as_json
+        end
+
+        it 'should be successful' do
+          response.status.should == 200
+        end
+
+        it' should persist updates' do
+          result = JSON.parse(response.body)
+          result['updates']['name'].should eq('some new name')
+        end
+
+        it 'should return a success message' do
+          result = JSON.parse(response.body)
+          result['success'].should eq('Activity Updated!')
+        end
+      end
+    end
+
+    describe 'DESTROY JSON with trips/:trip_id/activities/:id.json on DESTROY method' do
+
+      context 'given a trip id and an activity id' do
+        before :each do
+          delete trip_activity_path @trip, @activity
+        end
+
+        it 'should be successful' do
+          response.status.should == 200
+        end
+
+        it' should return a success message' do
+          result = JSON.parse(response.body)
+          result["success"].should eq('Activity Deleted!')
+        end
+
+      end
+    end
 end

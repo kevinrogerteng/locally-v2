@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
+
   def index
 
-    # trip = Trip.where(id: params[:trip_id]).includes(:activities)
     trip = Trip.find(params[:trip_id])
     activities = trip.activities
     render :json => {:trip => trip, :activities => activities}
@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+
     trip = Trip.find(params[:trip_id])
     new_activity = trip.activities.new(activity_params)
 
@@ -22,6 +23,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+
     trip = Trip.find(params[:trip_id])
     activity = trip.activities.find(params[:id])
 
@@ -30,9 +32,26 @@ class ActivitiesController < ApplicationController
   end
 
   def update
+
+    activity = Trip.find(params[:trip_id]).activities.find(params[:id])
+    activity.update_attributes(activity_params)
+
+    render :json => {
+      :updates => activity,
+      :success => 'Activity Updated!'
+    }
   end
 
   def destroy
+
+    activity = activity = Trip.find(params[:trip_id]).activities.find(params[:id])
+    if activity.destroy
+
+      render :json => {
+        :success => 'Activity Deleted!'
+      }
+
+    end
   end
 
   private
@@ -40,4 +59,5 @@ class ActivitiesController < ApplicationController
   def activity_params
     params.require(:activity).permit(:name, :description, :address, :phone, :biz_url, :thumbnail_photo, :rating, :yid, :completed )
   end
+  
 end
