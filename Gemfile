@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'angularjs-rails', '~> 1.2.16'
 
+gem "oauth", "~> 0.4.7"
+
 group :doc do
   gem 'sdoc', require: false
 end
