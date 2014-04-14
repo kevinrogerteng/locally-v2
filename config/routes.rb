@@ -12,6 +12,6 @@ Locallyv2::Application.routes.draw do
 
   resources :users, only:[:create, :update, :show, :destroy]
   
-  root "site#index"
+  root to: "site#index"
   
 end
