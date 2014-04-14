@@ -1,4 +1,4 @@
-locallyApp = angular.module("locallyApp", ['locallyAppCtrls', 'locallyAppRouter'])
+locallyApp = angular.module("locallyApp", ['locallyAppCtrls', 'locallyAppRouter', 'ui.bootstrap'])
 
 locallyAppCtrls = angular.module("locallyAppCtrls", [])
 
