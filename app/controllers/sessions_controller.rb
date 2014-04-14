@@ -1,14 +1,27 @@
 class SessionsController < ApplicationController
-  def new
-    respond_to do |f|
-        f.html {render :layout => false}
-        f.json {render :json }
-    end
-  end
+
+  include SessionsHelper
 
   def create
+
+    user=User.find_by_email(params[:session][:email].downcase)
+
+    if user && user.authenticate(params[:session][:password])
+      sign_in user
+      render :json => {
+        :success => user }
+    else
+      render :json => {:error => 'invalid email or password'}
+    end
+
   end
 
   def destroy
+
+    sign_out
+
+    render :json => {:success => "Successfully Signed Out"}
+
   end
+
 end

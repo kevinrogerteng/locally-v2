@@ -1,22 +1,29 @@
 require 'spec_helper'
 
-describe "Session" do
+describe 'Session' do  
+  before :each do
+    @user = create(:user, password: "password", password_confirmation: "password")
+  end 
 
-  it 'post should be successful' do
-    post sessions_path
-    response.should be_successful
+  describe 'POST JSON with /sessions.json' do
+
+    it 'should be successful' do
+      post sessions_path session: {email: @user.email, password: "password"}
+      response.status.should == 200
+    end
+
+    it 'should return a user' do
+      post sessions_path session: {email: @user.email, password: "password"}
+      result = JSON.parse(response.body)
+      result['success']['email'].should eq(@user.email)
+    end
   end
 
-  # THIS IS MORE FOR BDD
-  # describe "Signing in" do
-  #   context "with correct credentials" do
-  #     it 'should create a remember token'
-  #     it 'should set current user'
-  #   end
+  describe 'DESTROY JSON with /sessions.json' do
+      it 'should be successful' do
+      delete session_path @user
+      response.status.should == 200
+    end
+  end
 
-  #   context "with incorrect credentials" do
-  #     it 'should return an error'
-  #   end
-  # end
-  
 end
