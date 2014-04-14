@@ -1,5 +1,7 @@
 Locallyv2::Application.routes.draw do
 
+  get '/api/yelps', to: "yelps#yelp_search", as: :yelp_search
+
   resources :sites, only:[ :index ]
 
   resources :trips do
