@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       render :json => {
-        :success => user }
+        :success => user.as_json(except: [:password_digest, :remember_token])}
     else
       render :json => {:error => 'invalid email or password'}
     end
