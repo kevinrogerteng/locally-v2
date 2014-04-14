@@ -5,5 +5,8 @@ locallyAppRouter.config(['$routeProvider',
     $routeProvider.when("/"
     templateUrl: "/mains"
     controller: "userCtrl"
+    ).when("/trips"
+    templateUrl: "/trips"
+    controller: "tripCtrl"
     )
   ])

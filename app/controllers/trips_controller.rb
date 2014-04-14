@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-
+    binding.pry
     trips = Trip.where(user_id: params[:current_user])
     user = User.find(params[:current_user])
 
