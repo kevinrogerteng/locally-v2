@@ -16,6 +16,8 @@ gem 'turbolinks'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'angularjs-rails', '~> 1.2.16'
+
 group :doc do
   gem 'sdoc', require: false
 end
