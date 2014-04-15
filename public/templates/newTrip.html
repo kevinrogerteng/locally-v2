@@ -1,0 +1,19 @@
+<h1> New Trip</h1>
+
+<form role="form" ng-submit="submitTrip()">
+
+      <div class="form-group">
+        <label >Trip Name</label>
+        <input type="text" class="form-control" placeholder="Enter a title" ng-model="newtrip.name" required>
+
+        <label >Trip Destination</label>
+        <input type="text" class="form-control" placeholder="Enter a title" ng-model="newtrip.destination" required>
+      </div>
+
+      <div class="form-group newForm">
+        <label>Description</label>
+        <textarea class="form-control" rows="3" placeholder="Enter a description" ng-model="newtrip.description"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+</form>

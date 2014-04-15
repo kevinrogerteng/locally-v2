@@ -30,30 +30,51 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
 
     $scope.currentTrip = {}
 
-    Api.Yelp.query((data)->
-        $scope.yelpResult = data
-        )
+    $scope.newtrip = {}
 
     Api.Trips.get((data)->
       $scope.trips = data.trips
       )
 
     $scope.tripClick= (trip) ->
-      $scope.currentTrip = trip
       $scope.activitiesShow = true
+      $scope.yelpShow = true
       $scope.tripDetailsShow = true
+      $scope.newActivity = false
+      $scope.newTrip = false
+      $scope.currentTrip = trip
       Api.Activities.get({"trip_id": trip.id}, (data)->
         $scope.activities = data.activities
+        )
+      Api.Yelp.query({"destination": trip.destination},(data)->
+        $scope.yelpResult = data
         )
 
     $scope.yelp ={}
     $scope.yelpSearch = ()->
-      console.log($scope.yelp.search)
+      $scope.yelpResult = {}
+      Api.Yelp.query({"destination": $scope.currentTrip.destination, "restaurant": $scope.yelp.search},(data)->
+        $scope.yelpResult = data
+
+        )
 
     $scope.createTrip = ()->
       $scope.currentTrip = {}
+      $scope.newTrip = true
+      $scope.yelpShow = false
       $scope.activitiesShow = false
       $scope.tripDetailsShow = false
+      $scope.newActivity = false
+
+    $scope.createActivity = ()->
+      $scope.newActivity = true
+      $scope.yelpShow = false
+
+
+    $scope.templates = [{url: "/templates/newTrip.html"}, {url: "/templates/newActivity.html"}]
+
+    $scope.submitTrip = () ->
+      console.log($scope.newtrip)
 
 
 

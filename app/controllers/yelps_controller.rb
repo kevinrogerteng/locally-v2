@@ -2,9 +2,14 @@ class YelpsController < ApplicationController
 
   def yelp_search
 
-    restaurant = 'restaurant'
-    trip = "San Francisco"
-    offset_number = 1
+    if params[:restaurant] != nil
+        restaurant = params[:restaurant].gsub(" ", "+")
+    else
+        restaurant = "restaurant"
+    end
+
+    trip = params[:destination]
+    offset_number = rand(10)
 
     location = trip.delete(",").gsub(" ", "+")
     consumer_key = ENV['CONSUMER_KEY']
@@ -16,7 +21,7 @@ class YelpsController < ApplicationController
 
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-    path = "/v2/search?term=#{restaurant}&location=#{location}&limit=2&sort=0&offset=#{offset_number}"
+    path = "/v2/search?term=#{restaurant}&location=#{location}&limit=5&offset=#{offset_number}"
     parsed_results = JSON.parse(access_token.get(path).body)["businesses"]
 
     results = []
