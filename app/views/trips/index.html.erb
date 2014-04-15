@@ -1,0 +1,10 @@
+<nav>
+<button class='btn btn-6 btn-6d' ng-click="tripShow = !tripShow">Trips</button>
+</nav>
+
+<div ng-repeat="trip in trips">
+  <div>
+   <button class='tripbtn tripbtn-1 tripbtn-1d'> {{trip.name}} <br>
+    {{trip.destination}}</button>
+  </div>
+</div>

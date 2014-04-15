@@ -1,0 +1,48 @@
+<div class="container">
+  <div class='main-logo'>
+      <span class='logo'>Locally</span><br>
+      Travel, Eat and Be a Local!<br>
+      Powered by Yelp
+    <div ng-hide='signShow'>
+      <a ng-click="signShow = !signShow">Sign In / Sign Up</a>
+    </div>
+  </div>
+
+  <div class='usersign' ng-show="signShow">
+  <tabset>
+      <tab heading='Sign In'>
+          <form ng-submit="attemptLogin()">
+            <div class="form-group userForm" >
+              <label>Email address</label>
+              <input type="email" class="form-control" placeholder="Enter email" ng-model="credentials.email">
+              <label>Password</label>
+              <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+      </tab>
+
+      <tab heading='Sign Up'>
+            <form role="form" ng-submit="createUser()">
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" placeholder="Enter email" ng-model="newCredentials.email">
+                <label>Screen Name</label>
+                <input type="text" class="form-control" ng-model="newCredentials.screenName" placeholder="Screen Name (Optional)">
+                <label>Hometown</label>
+                <input type="text" class="form-control" ng-model="newCredentials.hometown" placeholder="Hometown (Optional)">
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" ng-model="newCredentials.password" placeholder="Password">
+                <label>Password Confirmation</label>
+                <input type="password" class="form-control" ng-model="newCredentials.passwordConfirmation" placeholder="Confirm Password">
+              </div>
+
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </tab> 
+  </tabset> 
+  </div>
+</div>

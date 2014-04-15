@@ -17,6 +17,18 @@ describe 'Session' do
       result = JSON.parse(response.body)
       result['success']['email'].should eq(@user.email)
     end
+
+    it 'should NOT return password_digest' do
+      post sessions_path session: {email: @user.email, password: "password"}
+      result = JSON.parse(response.body)
+      result['success']['password_digest'].should eq(nil)
+    end
+
+    it 'should NOT return remember_token' do
+      post sessions_path session: {email: @user.email, password: "password"}
+      result = JSON.parse(response.body)
+      result['success']['remember_token'].should eq(nil)
+    end
   end
 
   describe 'DESTROY JSON with /sessions.json' do

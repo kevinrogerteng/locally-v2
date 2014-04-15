@@ -1,9 +1,16 @@
-locallyApp = angular.module("locallyApp", ['locallyAppCtrls'])
-
-locallyAppCtrls = angular.module("locallyAppCtrls", [])
-
-locallyAppCtrls.controller('userCtrl', ["$scope",
-  ($scope) ->
-
+locallyApp = angular.module("locallyApp", [
+  'locallyAppCtrls', 
+  'locallyAppRouter', 
+  'locallyAppService',
+  'ui.bootstrap', 
+  'auth'
   ])
+
+locallyApp.config(["$httpProvider",($httpProvider)->
+     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+])
+
+
+
+
 

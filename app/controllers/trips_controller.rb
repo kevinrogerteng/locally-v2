@@ -1,14 +1,15 @@
 class TripsController < ApplicationController
 
   def index
+    trips = Trip.where(user_id: current_user.id)
 
-    trips = Trip.where(user_id: params[:current_user])
-    user = User.find(params[:current_user])
-
-    render :json => {
+    respond_to do |f|
+        f.html  {render :layout => false }
+        f.json {render :json => {
           :trips => trips,
-          :user => user
-          }
+          :user => current_user
+          }}
+    end
   end
 
   def create

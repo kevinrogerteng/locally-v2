@@ -4,7 +4,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      render :json => { :success => "Welcome!"}
+      render :json => { 
+        :success => "Welcome!",
+        :user => user
+      }
     end
 
   end

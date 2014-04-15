@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Trip" do
+  include SessionsHelper
 
   before :each do 
     @user = create(:user, email: "sample@example.com", screen_name: "pengusan" ,password: "password", password_confirmation: "password")
@@ -10,9 +11,10 @@ describe "Trip" do
   describe "GET JSON with /trips.json ON index method" do
 
     before :each do
-      id = {:current_user => @user.id}
+      @current_user = FactoryGirl.create(:user)
       json = { :format => 'json'}
-      get trips_path(id), json
+      sign_in(@current_user)
+      get trips_path, json
     end
 
     it "should be successful" do
