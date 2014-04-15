@@ -25,7 +25,14 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
   ])
 
 
-locallyAppCtrls.controller('tripCtrl', ['$scope', 'Api','AuthService'
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
   ($scope, Api, AuthService) ->
+    $scope.message = "hello world!"
+    Api.Trips.get((data)->
+      $scope.trips = data.trips
+      )
+
 
   ])
+
+
