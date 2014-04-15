@@ -31,6 +31,10 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
     Api.Trips.get((data)->
       $scope.trips = data.trips
       )
+    $scope.tripClick= (trip) ->
+      Api.Activities.get({"trip_id": trip.id}, (data)->
+        
+        )
 
 
   ])

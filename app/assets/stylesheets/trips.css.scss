@@ -1,4 +1,4 @@
-.btn {
+.btn1 {
   border: none;
   font-family: 'Love Ya Like A Sister', cursive;
   font-size: 2em;
@@ -18,7 +18,7 @@
   transition: all 0.3s;
 }
 
-.btn:after {
+.btn1:after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -29,7 +29,7 @@
 }
 
 
-.btn-6 {
+.btn1-6 {
   color: #fff;
   background: #226fbe;
   -webkit-transition: none;
@@ -37,15 +37,15 @@
   transition: none;
 }
 
-.btn-6:active {
+.btn1-6:active {
   top: 2px;
 }
 
-.btn-6d {
+.btn1-6d {
   border: 2px dashed #226fbe;
 }
 
-.btn-6d:hover {
+.btn1-6d:hover {
   background: transparent;
   color: #226fbe;
 }
