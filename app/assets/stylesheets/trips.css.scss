@@ -126,3 +126,48 @@
   -moz-transition: none;
   transition: none;
 }
+
+*::-webkit-input-placeholder {
+  font-size: inherit ;
+    color: #fff;
+}    
+*:-moz-placeholder {
+    color: #fff;
+}
+*::-moz-placeholder {
+    color: #fff;
+}    
+*:-ms-input-placeholder {
+    color: #fff;
+}
+
+input[type=text]{
+  outline: none;
+  background: none;
+  border: none;
+  display: inline-block;
+}
+
+
+.searchfield{
+  background-color: rgba(192, 57, 43,0.3);
+  border: 2px dashed #c0392b;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: inherit;
+  color: #fff;
+  padding:10px 65px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.searchbtn{
+}
+

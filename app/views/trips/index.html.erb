@@ -16,11 +16,17 @@
 
   <div class='col-md-4'>
     <button class="tripbtn tripbtn-2 tripbtn-2d">New Activity <i class="fa fa-plus"></i></button>
-    Activities here
+    <div ng-repeat="activity in activities">
+      <button class='tripbtn tripbtn-1 tripbtn-1d' ng-click="tripClick(trip)"> {{activity.name}} <br>
+          {{trip.destination}}</button>
+    </div>
   </div>
 
   <div class='col-md-4'>
-    <label>Search: </label><input type="text" placeholder="Search for places"></input>
+    <div class='searchfield'>
+      <input type="text" placeholder="Search for places"><button type="submit" class='btn btn-danger'><i class="fa fa-search"></i></button>
+    </div>
+
   </div>
 
 
