@@ -2,9 +2,27 @@
 <button class='btn btn-6 btn-6d' ng-click="tripShow = !tripShow">Trips</button>
 </nav>
 
-<div ng-repeat="trip in trips">
-  <div>
-   <button class='tripbtn tripbtn-1 tripbtn-1d'> {{trip.name}} <br>
-    {{trip.destination}}</button>
+<div class='row'>
+  <div class='col-md-4'>
+    <button class="tripbtn tripbtn-2 tripbtn-2d">New Trip <i class="fa fa-plus"></i></button>
+
+
+    <div ng-repeat="trip in trips">
+       <button class='tripbtn tripbtn-1 tripbtn-1d'> {{trip.name}} <br>
+        {{trip.destination}}</button>
+    </div>
+
   </div>
-</div>
+
+  <div class='col-md-4'>
+    <button class="tripbtn tripbtn-2 tripbtn-2d">New Activity <i class="fa fa-plus"></i></button>
+    Activities here
+  </div>
+
+  <div class='col-md-4'>
+    <label>Search: </label><input type="text" placeholder="Search for places"></input>
+  </div>
+
+
+
+</div> <!--row close-->

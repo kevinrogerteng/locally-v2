@@ -53,6 +53,7 @@
 .tripbtn{
   border: none;
   font-family: 'Love Ya Like A Sister', cursive;
+  width: 300px;
   font-size: inherit;
   color: inherit;
   background: none;
@@ -99,4 +100,29 @@
 .tripbtn-1d:hover {
   background: transparent;
   color: #226fbe;
+}
+
+.tripbtn-2 {
+  border: 2px dashed #226fbe;
+  color: #226fbe;
+  background: #226fbe;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+.tripbtn-2:active {
+  top: 2px;
+}
+
+.tripbtn-2d{
+  background: transparent;
+}
+
+.tripbtn-2d:hover{
+  color: #fff;
+  background: #226fbe;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
 }
