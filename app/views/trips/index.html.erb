@@ -1,10 +1,11 @@
 <nav>
-<button class='btn1 btn1-6 btn1-6d' ng-click="tripShow = !tripShow">Trips</button>
+  <div class='btn1 btn1-6 btn1-6d' ng-click="tripShow = !tripShow">Trips</div> 
+  <span ng-show="tripDetailsShow" ng-class='{tripDetails: tripDetailsShow}'>Description: {{currentTrip.description}}</span>
 </nav>
 
 <div class='row'>
   <div class='col-md-4'>
-    <button class="tripbtn tripbtn-2 tripbtn-2d">New Trip <i class="fa fa-plus"></i></button>
+    <button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createTrip()">New Trip <i class="fa fa-plus"></i></button>
 
 
     <div ng-repeat="trip in trips">
@@ -14,7 +15,7 @@
 
   </div>
 
-  <div class='col-md-4'>
+  <div class='col-md-4' ng-show="activitiesShow">
     <button class="tripbtn tripbtn-2 tripbtn-2d">New Activity <i class="fa fa-plus"></i></button>
     <div ng-repeat="activity in activities">
       <button class='tripbtn tripbtn-1 tripbtn-1d' ng-click="tripClick(trip)"> {{activity.name}} <br>
@@ -22,9 +23,22 @@
     </div>
   </div>
 
-  <div class='col-md-4'>
+  <div class='col-md-4' ng-show="activitiesShow">
     <div class='searchfield'>
-      <input type="text" placeholder="Search for places"><button type="submit" class='btn btn-danger'><i class="fa fa-search"></i></button>
+      <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button>
+    </div>
+
+    <div ng-repeat="result in yelpResult" class='media yelpBox'>
+      <div class='pull-left'>
+        <img src="{{result.image_url}}" class='media-object img-circle' />
+      </div>
+      <div class='media-body'>
+        <h4>{{result.name}}</h4>
+        {{result.location}}
+        {{result.url}}
+        {{result.rating}}
+      </div>
+
     </div>
 
   </div>

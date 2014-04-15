@@ -1,3 +1,7 @@
+nav{
+  display: inline-block;
+}
+
 .btn1 {
   border: none;
   font-family: 'Love Ya Like A Sister', cursive;
@@ -168,6 +172,17 @@ input[type=text]{
   transition: all 0.3s;
 }
 
-.searchbtn{
+.yelpBox{
+  font-family: 'Love Ya Like A Sister', cursive;
+  background-color: rgba(192, 57, 43,0.5);
+  border: 2px dashed #c0392b;
+  padding: 5px;
+  color: #fff;
 }
 
+.tripDetails{
+  font-size: 1.5em;
+  border: 2px dashed #c0392b;
+  padding: 10px;
+  font-family: 'Love Ya Like A Sister', cursive;
+}

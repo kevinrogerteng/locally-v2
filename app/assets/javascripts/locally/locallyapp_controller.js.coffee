@@ -27,14 +27,34 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
 
 locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
   ($scope, Api, AuthService) ->
-    $scope.message = "hello world!"
+
+    $scope.currentTrip = {}
+
+    Api.Yelp.query((data)->
+        $scope.yelpResult = data
+        )
+
     Api.Trips.get((data)->
       $scope.trips = data.trips
       )
+
     $scope.tripClick= (trip) ->
+      $scope.currentTrip = trip
+      $scope.activitiesShow = true
+      $scope.tripDetailsShow = true
       Api.Activities.get({"trip_id": trip.id}, (data)->
         $scope.activities = data.activities
         )
+
+    $scope.yelp ={}
+    $scope.yelpSearch = ()->
+      console.log($scope.yelp.search)
+
+    $scope.createTrip = ()->
+      $scope.currentTrip = {}
+      $scope.activitiesShow = false
+      $scope.tripDetailsShow = false
+
 
 
   ])
