@@ -2,6 +2,17 @@ nav{
   display: inline-block;
 }
 
+.media-body a {
+  color: #fff;
+}
+.media-body a:link{
+  color: #fff;
+}
+
+.media-body a:focus{
+  text-decoration: none;
+}
+
 .btn1 {
   border: none;
   font-family: 'Love Ya Like A Sister', cursive;
