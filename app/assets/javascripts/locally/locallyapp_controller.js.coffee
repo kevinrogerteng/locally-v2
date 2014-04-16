@@ -25,8 +25,8 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
   ])
 
 
-locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter", "$http",
-  ($scope, Api, AuthService, $http, limitToFilter) ->
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter", "$http", "$interval"
+  ($scope, Api, AuthService, $http, limitToFilter, $interval) ->
 
     $scope.currentTrip = {}
 
@@ -37,6 +37,8 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       )
 
     $scope.tripClick= (trip) ->
+      $scope.yelpResult = {}
+      $scope.loading = true
       $scope.messageShow = false
       $scope.activitiesShow = true
       $scope.yelpShow = true
@@ -52,14 +54,16 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
         $scope.activities = data.activities
         )
       Api.Yelp.query({"destination": trip.destination},(data)->
+        $scope.loading = false
         $scope.yelpResult = data
         )
 
     $scope.yelp ={}
     $scope.yelpSearch = ()->
-
+      $scope.loading = true
       $scope.yelpResult = {}
       Api.Yelp.query({"destination": $scope.currentTrip.destination, "restaurant": $scope.yelp.search},(data)->
+        $scope.loading = false
         $scope.yelpResult = data
 
         )
@@ -89,6 +93,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
 
 
     $scope.templates = [{url: "/templates/newTrip.html"}, {url: "/templates/newActivity.html"}]
+    $scope.loader = {url: "/images/load.gif"}
 
     $scope.submitTrip = () ->
       Api.Trips.save($scope.newtrip, (data)->
