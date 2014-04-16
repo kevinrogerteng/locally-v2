@@ -25,8 +25,8 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
   ])
 
 
-locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
-  ($scope, Api, AuthService) ->
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter"
+  ($scope, Api, AuthService, $http, limitToFilter) ->
 
     $scope.currentTrip = {}
 
@@ -76,7 +76,9 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService"
     $scope.submitTrip = () ->
       console.log($scope.newtrip)
 
-
+    $scope.cities = (cityName) ->
+      $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=JSON_CALLBACK &filter=US&q=" + cityName).then (response) ->
+        limitToFilter response.data, 15
 
   ])
 
