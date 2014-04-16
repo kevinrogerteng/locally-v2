@@ -8,13 +8,34 @@
   <div class='col-md-4' ng-include="templates[0].url">
   </div>
 
-  <div class='col-md-4 newForm' ng-show='newTrip' ng-include="templates[1].url">
+  <div class='col-md-4 formNew' ng-show='newTrip' ng-include="templates[1].url">
   </div>
 
-  <div class='col-md-4' ng-show="activitiesShow" ng-include="templates[2].url">
+  <div class='col-md-4' ng-show="activitiesShow">
+    <button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createActivity()">New Activity <i class="fa fa-plus"></i></button>
+
+    <div ng-show="loading" class="loading">
+        <img src="{{loader.url}}" />
+    </div>
+
+    <div ng-repeat="activity in activities" class='media'>
+
+      <button class='activitybtn activitybtn1 activitybtn-1d' ng-click="activityClick($index)">
+
+        <div class='pull-left'>
+          <img src={{activity.thumbnail_photo}} class=' actimg media-object img-circle' /> 
+        </div>
+
+        <div class='media-body'>
+          <h4>{{activity.name}}</h4>
+          {{activity.address}}
+        </div>
+
+      </button>
+    </div>
   </div>
 
-  <div class='col-md-4' ng-show='newActivity' ng-include="templates[3].url">
+  <div class='col-md-4 formNew' ng-show='newActivityForm' ng-include="templates[3].url">
   </div>
 
   <div class='col-md-4' ng-show="yelpShow">
@@ -30,8 +51,11 @@
       <div class='pull-left'>
         <img src={{result.thumbnail_photo}} class='media-object img-circle' />
       </div>
+      <div class='pull-right'>
+        ({{result.rating}} /5)
+      </div>
       <div class='media-body'>
-        <h4>{{result.name}} ({{result.rating}} /5)</h4>
+        <h4>{{result.name}}</h4>
         {{result.address}}<br>
         <i class="fa fa-plus-square btn btn-lg" ng-click="addToActivity(result, currentTrip)"></i>
         <a href="{{result.biz_url}}" target="_blank">More Info</a>

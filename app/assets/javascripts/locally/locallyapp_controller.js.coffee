@@ -37,13 +37,14 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       )
 
     $scope.tripClick= (trip) ->
+      $scope.activities = {}
       $scope.yelpResult = {}
       $scope.loading = true
       $scope.messageShow = false
       $scope.activitiesShow = true
       $scope.yelpShow = true
       $scope.tripDetailsShow = true
-      $scope.newActivity = false
+      $scope.newActivityForm = false
       $scope.newTrip = false
       $scope.currentTrip = trip
       indexOfTrip = $scope.trips.indexOf trip
@@ -51,6 +52,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       $scope.trips.unshift moveTrip
 
       Api.Activities.get({"trip_id": trip.id}, (data)->
+        $scope.loading = false
         $scope.activities = data.activities
         )
       Api.Yelp.query({"destination": trip.destination},(data)->
@@ -74,10 +76,10 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       $scope.yelpShow = false
       $scope.activitiesShow = false
       $scope.tripDetailsShow = false
-      $scope.newActivity = false
+      $scope.newActivityForm = false
 
     $scope.createActivity = ()->
-      $scope.newActivity = true
+      $scope.newActivityForm = true
       $scope.yelpShow = false
 
     $scope.addToActivity = (yelpActivity, currentTrip)->
@@ -92,7 +94,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
         )
 
 
-    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTrip.html"}, {url: "/templates/showActivity.html"},{url: "/templates/newActivity.html"}]
+    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTrip.html"}, {url: "/templates/showActivities.html"},{url: "/templates/newActivity.html"}]
     $scope.loader = {url: "/images/load.gif"}
 
     $scope.submitTrip = () ->

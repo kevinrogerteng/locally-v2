@@ -22,7 +22,7 @@ nav{
   cursor: pointer;
   padding:15px 65px;
   display: inline-block;
-  margin: 15px 30px;
+  margin: 15px 25px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
@@ -134,8 +134,63 @@ nav{
   background: #226fbe;
 }
 
+.activitybtn{
+  border: none;
+  font-family: 'Love Ya Like A Sister', cursive;
+  width: 300px;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding:5px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.activitybtn:after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
+}
+
+.activitybtn1 {
+  color: #fff;
+  background: #226fbe;
+}
+
+.activitybtn1:active {
+  top: 2px;
+}
+
+.activitybtn-1d {
+  border: 2px dashed #226fbe;
+}
+
+.activitybtn-1d:hover {
+  background: transparent;
+  color: #226fbe;
+}
+
+.actimg {
+  height:100px;
+  width: 100px;
+  align:center;
+}
+
 *::-webkit-input-placeholder {
-  font-size: inherit ;
+    font-size: inherit ;
     color: #fff;
 }    
 *:-moz-placeholder {
@@ -195,6 +250,42 @@ nav{
   text-align: center;
 }
 
-.newForm {
+.formNew {
   font-family: 'Love Ya Like A Sister', cursive;
+  border: 2px dashed #F9FFAA; 
+  padding: 10px;
+  margin-top: 15px;
+  background-color: rgba(249,255,170,0.5);
+}
+
+.formNew h1{
+  text-align: center;
+}
+
+.formNew input[type=text]{
+  outline: none;
+  background: none;
+  border: none;
+  display: inline-block;
+  color: #7F6F9C ;
+}
+
+.form-group textarea.form-control{
+  background: none;
+  border: none;
+  display: inline-block;
+  color: #7F6F9C
+}
+
+.form-group textarea.form-control::-webkit-input-placeholder {
+  color: #F07E74;
+}
+.form-group textarea.form-control::-moz-placeholder{
+  color: #F07E74;
+}
+.form-group textarea.form-control:-ms-input-placeholder {
+  color: #F07E74;
+}
+.formNew input::-webkit-input-placeholder{
+   color: #F07E74;
 }
