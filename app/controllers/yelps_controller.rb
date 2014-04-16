@@ -29,11 +29,12 @@ class YelpsController < ApplicationController
     parsed_results.each do |result|
         object = {"name" => "#{result['name']}", 
         "display_phone" => "#{result['display_phone']}",
-        "image_url" => "#{result['image_url']}",
-        "url" => "#{result['url']}",
+        "thumbnail_photo" => "#{result['image_url']}",
+        "biz_url" => "#{result['url']}",
         "rating" => "#{result['rating']}",
-        "location" => "#{result['location']['address'].first}, #{result['location']['city']}, #{result['location']['country_code']}, #{result['location']['postal_code']}",
-        "rating" => "#{result['rating']}"
+        "address" => "#{result['location']['address'].first}, #{result['location']['city']}, #{result['location']['country_code']}, #{result['location']['postal_code']}",
+        "rating" => "#{result['rating']}",
+        "yid" => "#{result['id']}"
         }
 
         results.push object

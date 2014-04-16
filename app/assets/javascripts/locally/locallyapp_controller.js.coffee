@@ -25,7 +25,7 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
   ])
 
 
-locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter"
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter", "$http",
   ($scope, Api, AuthService, $http, limitToFilter) ->
 
     $scope.currentTrip = {}
@@ -73,9 +73,19 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       $scope.newActivity = false
 
     $scope.createActivity = ()->
-      
       $scope.newActivity = true
       $scope.yelpShow = false
+
+    $scope.addToActivity = (yelpActivity, currentTrip)->
+      $scope.activities.unshift yelpActivity
+      $http({
+        method: "POST",
+        url: "/trips/" + currentTrip.id + "/activities.json"
+        data: {"activity":yelpActivity}
+      }).success((data)->
+          $scope.message = data
+          $scope.messageShow = true
+        )
 
 
     $scope.templates = [{url: "/templates/newTrip.html"}, {url: "/templates/newActivity.html"}]

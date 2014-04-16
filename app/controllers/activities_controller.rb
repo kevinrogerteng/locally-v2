@@ -9,7 +9,6 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-
     trip = Trip.find(params[:trip_id])
     new_activity = trip.activities.new(activity_params)
 

@@ -21,8 +21,7 @@
   <div class='col-md-4' ng-show="activitiesShow">
     <button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createActivity()">New Activity <i class="fa fa-plus"></i></button>
     <div ng-repeat="activity in activities">
-      <button class='tripbtn tripbtn1 tripbtn-1d' ng-click="tripClick($index)"> {{activity.name}} <br>
-          {{trip.destination}}</button>
+      <button class='tripbtn tripbtn1 tripbtn-1d' ng-click="activityClick($index)"> {{activity.name}}</button>
     </div>
   </div>
 
@@ -38,12 +37,13 @@
 
     <div ng-repeat="result in yelpResult" class='media yelpBox'>
       <div class='pull-left'>
-        <img src={{result.image_url}} class='media-object img-circle' />
+        <img src={{result.thumbnail_photo}} class='media-object img-circle' />
       </div>
       <div class='media-body'>
         <h4>{{result.name}} ({{result.rating}})</h4>
-        {{result.location}}<br>
-        <a href="{{result.url}}"> more info </a>
+        {{result.address}}<br>
+        <i class="fa fa-plus-square btn btn-lg" ng-click="addToActivity(result, currentTrip)"></i>
+        <a href="{{result.url}}" target="_blank"> more info </a>
       </div>
 
     </div>
