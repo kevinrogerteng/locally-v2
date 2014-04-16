@@ -47,9 +47,6 @@ nav{
 .btn1-6 {
   color: #fff;
   background: #226fbe;
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
 }
 
 .btn1-6:active {
@@ -99,9 +96,6 @@ nav{
 .tripbtn1 {
   color: #fff;
   background: #226fbe;
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
 }
 
 .tripbtn1:active {
@@ -125,9 +119,6 @@ nav{
   border: 2px dashed #226fbe;
   color: #226fbe;
   background: #226fbe;
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
 }
 
 .tripbtn-2:active {
@@ -141,9 +132,6 @@ nav{
 .tripbtn-2d:hover{
   color: #fff;
   background: #226fbe;
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
 }
 
 *::-webkit-input-placeholder {
@@ -208,4 +196,5 @@ nav{
 }
 
 .newForm {
+  font-family: 'Love Ya Like A Sister', cursive;
 }
