@@ -37,12 +37,17 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       )
 
     $scope.tripClick= (trip) ->
+      $scope.messageShow = false
       $scope.activitiesShow = true
       $scope.yelpShow = true
       $scope.tripDetailsShow = true
       $scope.newActivity = false
       $scope.newTrip = false
       $scope.currentTrip = trip
+      indexOfTrip = $scope.trips.indexOf trip
+      moveTrip = $scope.trips.splice(indexOfTrip, 1)[0]
+      $scope.trips.unshift moveTrip
+
       Api.Activities.get({"trip_id": trip.id}, (data)->
         $scope.activities = data.activities
         )
@@ -52,6 +57,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
 
     $scope.yelp ={}
     $scope.yelpSearch = ()->
+
       $scope.yelpResult = {}
       Api.Yelp.query({"destination": $scope.currentTrip.destination, "restaurant": $scope.yelp.search},(data)->
         $scope.yelpResult = data
@@ -67,6 +73,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       $scope.newActivity = false
 
     $scope.createActivity = ()->
+      
       $scope.newActivity = true
       $scope.yelpShow = false
 
@@ -74,7 +81,13 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.templates = [{url: "/templates/newTrip.html"}, {url: "/templates/newActivity.html"}]
 
     $scope.submitTrip = () ->
-      console.log($scope.newtrip)
+      Api.Trips.save($scope.newtrip, (data)->
+        if data.success
+          $scope.trips.unshift data.new_trip
+          $scope.messageShow = true
+          $scope.newTrip = false
+          $scope.message = data
+        )
 
     $scope.cities = (cityName) ->
       $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=JSON_CALLBACK &filter=US&q=" + cityName).then (response) ->

@@ -1,6 +1,7 @@
 <nav>
   <div class='btn1 btn1-6 btn1-6d' ng-click="tripShow = !tripShow">Trips</div> 
   <span ng-show="tripDetailsShow" ng-class='{tripDetails: tripDetailsShow}'>Description: {{currentTrip.description}}</span>
+  <span ng-show="messageShow" ng-class='{tripDetails: tripDetailsShow}'>message: {{message.success}}</span>
 </nav>
 
 <div class='row'>
@@ -9,7 +10,7 @@
 
 
     <div ng-repeat="trip in trips">
-       <button class='tripbtn tripbtn-1 tripbtn-1d' ng-click="tripClick(trip)"> {{trip.name}} <br>
+       <button ng-class="{tripbtn2: currentTrip == trip}"class='tripbtn tripbtn1 tripbtn-1d' ng-click="tripClick(trip)"> {{trip.name}} <br>
         {{trip.destination}}</button>
     </div>
   </div>
@@ -20,7 +21,7 @@
   <div class='col-md-4' ng-show="activitiesShow">
     <button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createActivity()">New Activity <i class="fa fa-plus"></i></button>
     <div ng-repeat="activity in activities">
-      <button class='tripbtn tripbtn-1 tripbtn-1d' ng-click="tripClick(trip)"> {{activity.name}} <br>
+      <button class='tripbtn tripbtn1 tripbtn-1d' ng-click="tripClick($index)"> {{activity.name}} <br>
           {{trip.destination}}</button>
     </div>
   </div>
@@ -40,10 +41,9 @@
         <img src={{result.image_url}} class='media-object img-circle' />
       </div>
       <div class='media-body'>
-        <h4>{{result.name}}</h4>
-        {{result.location}}
-        {{result.url}}
-        {{result.rating}}
+        <h4>{{result.name}} ({{result.rating}})</h4>
+        {{result.location}}<br>
+        <a href="{{result.url}}"> more info </a>
       </div>
 
     </div>

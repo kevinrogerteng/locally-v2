@@ -85,7 +85,7 @@ nav{
 
 }
 
-.tripbtn-1 {
+.tripbtn1 {
   color: #fff;
   background: #226fbe;
   -webkit-transition: none;
@@ -93,8 +93,12 @@ nav{
   transition: none;
 }
 
-.tripbtn-1:active {
+.tripbtn1:active {
   top: 2px;
+}
+
+.tripbtn2{
+  background: rgba(46, 204, 113,1.0);
 }
 
 .tripbtn-1d {
