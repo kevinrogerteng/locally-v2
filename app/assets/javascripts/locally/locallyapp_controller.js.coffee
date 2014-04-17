@@ -36,6 +36,8 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
 
     $scope.newActivity ={}
 
+    $scope.activitiesShow = true
+
     $scope.close = () ->
       $scope.newActivityForm = false
       $scope.yelpShow = true
@@ -102,7 +104,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
         )
 
 
-    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTripForm.html"}, {url: "/templates/showActivities.html"},{url: "/templates/newActivityForms.html"}]
+    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTripForm.html"}, {url: "/templates/showActivitiesstuff.html"},{url: "/templates/newActivityForms.html"}, {url: "/templates/yelpShow.html"}]
     $scope.loader = {url: "/images/load.gif"}
 
     $scope.submitTrip = () ->

@@ -5,47 +5,21 @@
 
 <div class='row'>
   <div class='col-md-4' ng-include="templates[0].url">
-  </div>
+  </div> <!-- templates 0-->
 
   <div class='col-md-4 formNew' ng-show='newTrip' ng-include="templates[1].url">
 
-  </div>
+  </div> <!-- templates 1-->
 
   <div class='col-md-4' ng-show="activitiesShow" ng-include="templates[2].url">
 
-  </div>
+  </div> <!-- templates 2-->
 
-  <div class='col-md-4 formNew' ng-show='newActivityForm' ng-include="templates[3].url">
+  <div class='col-md-4 formNew' ng-show='newActivityForm' ng-include="templates[3]">
   
-  </div>
+  </div> <!-- templates 3-->
 
-  <div class='col-md-4' ng-show="yelpShow">
-    <div class='searchfield'>
-      <form>
-        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button> <button class="btn btn-warning"><i class="fa fa-refresh"></i></button>
-      </form> 
-    </div>
-    <div ng-show="loading" class="loading">
-        <img src="{{loader.url}}" />
-    </div>
-    <div ng-repeat="result in yelpResult" class='media yelpBox'>
-      <div class='pull-left'>
-        <img src={{result.thumbnail_photo}} class='media-object img-circle' />
-      </div>
-      <div class='pull-right'>
-        ({{result.rating}} /5)
-      </div>
-      <div class='media-body'>
-        <h4>{{result.name}}</h4>
-        {{result.address}}<br>
-        <i class="fa fa-plus-square add-activity" ng-click="addToActivity(result, currentTrip)"></i>
-        <a href="{{result.biz_url}}" target="_blank">More Info</a>
-      </div>
-
-    </div>
-
-  </div>
-
-
+ <div class='col-md-4' ng-show="yelpShow" ng-include="templates[4].url">
+ </div><!-- yelpShow-->
 
 </div> <!--row close-->
