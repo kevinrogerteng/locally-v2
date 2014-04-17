@@ -1,7 +1,6 @@
-<nav>
-  <div class='btn1 btn1-6 btn1-6d' ng-click="tripShow = !tripShow">Trips</div> 
-  <span ng-show="tripDetailsShow" ng-class='{tripDetails: tripDetailsShow}'>Description: {{currentTrip.description}}</span>
-  <span ng-show="messageShow" ng-class='{tripDetails: tripDetailsShow}'>message: {{message.success}}</span>
+<nav class='navigation-bar'>
+      <span class="nav-logo">Locally</span>
+      <span class="navigation-right"><button class="signoutbtn">Sign Out</button></span>
 </nav>
 
 <div class='row'>
@@ -20,8 +19,8 @@
   <div class='col-md-4' ng-show="yelpShow">
     <div class='searchfield'>
       <form>
-        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button>
-      </form>
+        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button> <button class="btn btn-warning"><i class="fa fa-refresh"></i></button>
+      </form> 
     </div>
     <div ng-show="loading" class="loading">
         <img src="{{loader.url}}" />
@@ -36,7 +35,7 @@
       <div class='media-body'>
         <h4>{{result.name}}</h4>
         {{result.address}}<br>
-        <i class="fa fa-plus-square btn btn-lg" ng-click="addToActivity(result, currentTrip)"></i>
+        <i class="fa fa-plus-square add-activity" ng-click="addToActivity(result, currentTrip)"></i>
         <a href="{{result.biz_url}}" target="_blank">More Info</a>
       </div>
 

@@ -10,7 +10,6 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
     $scope.attemptLogin = ()->
       Api.LogIn.create({'email':$scope.credentials.email, 'password':$scope.credentials.password}, (data)->
         if (data.error)
-          console.log(data.error)
           $scope.error = data.error
           AuthService.userIsAuthenticated = false
         else
@@ -31,6 +30,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.currentTrip = {}
 
     $scope.newtrip = {}
+    
     $scope.newActivity ={}
 
     Api.Trips.get((data)->
