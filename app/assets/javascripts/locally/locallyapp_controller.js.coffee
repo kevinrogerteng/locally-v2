@@ -31,6 +31,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.currentTrip = {}
 
     $scope.newtrip = {}
+    $scope.newActivity ={}
 
     Api.Trips.get((data)->
       $scope.trips = data.trips
@@ -104,6 +105,17 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
           $scope.messageShow = true
           $scope.newTrip = false
           $scope.message = data
+        )
+
+    $scope.submitActivity = () ->
+      $http({
+        method: "POST"
+        url: "/trips/" + $scope.currentTrip.id + "/activities.json"
+        data: {"activity":$scope.newActivity}
+      }).success((data)->
+          $scope.activities.unshift data.new_activity
+          $scope.newActivityForm = false
+          $scope.yelpShow = true
         )
 
     $scope.cities = (cityName) ->
