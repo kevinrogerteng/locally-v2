@@ -7,6 +7,9 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
 
     $scope.newCredentials ={}
 
+    $scope.closeSign = ()->
+      $scope.signShow = false
+
     $scope.attemptLogin = ()->
       Api.LogIn.create({'email':$scope.credentials.email, 'password':$scope.credentials.password}, (data)->
         if (data.error)
@@ -30,8 +33,12 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.currentTrip = {}
 
     $scope.newtrip = {}
-    
+
     $scope.newActivity ={}
+
+    $scope.close = () ->
+      $scope.newActivityForm = false
+      $scope.yelpShow = true
 
     Api.Trips.get((data)->
       $scope.trips = data.trips
@@ -95,7 +102,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
         )
 
 
-    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTrip.html"}, {url: "/templates/showActivities.html"},{url: "/templates/newActivity.html"}]
+    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTripForm.html"}, {url: "/templates/showActivities.html"},{url: "/templates/newActivityForms.html"}]
     $scope.loader = {url: "/images/load.gif"}
 
     $scope.submitTrip = () ->
@@ -105,6 +112,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
           $scope.messageShow = true
           $scope.newTrip = false
           $scope.message = data
+          $scope.newtrip = {}
         )
 
     $scope.submitActivity = () ->
@@ -116,6 +124,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
           $scope.activities.unshift data.new_activity
           $scope.newActivityForm = false
           $scope.yelpShow = true
+          $scope.newActivity = {}
         )
 
     $scope.cities = (cityName) ->

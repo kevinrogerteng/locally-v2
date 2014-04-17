@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    params[:activity][:thumbnail_photo] = "http://i.imgur.com/tCDTHfY.gif" if params[:activity][:thumbnail_photo] == nil
     trip = Trip.find(params[:trip_id])
     new_activity = trip.activities.new(activity_params)
 

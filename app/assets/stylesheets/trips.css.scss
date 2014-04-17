@@ -6,16 +6,16 @@ nav{
   z-index: 10;
   color: #fff;
   /*background-color: #C1C1C1;*/
-  background-image: url('stardust.png')
+  background-image: url('binding_dark.png')
 }
 
 .nav-logo{
   font-family: 'Lobster', cursive;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .navigation-bar{
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
   font-family: 'Love Ya Like A Sister', cursive;
 }
@@ -177,12 +177,16 @@ nav{
   text-align: center;
 }
 
+.close{
+  float: right;
+}
+
 .formNew {
   font-family: 'Love Ya Like A Sister', cursive;
   border: 2px dashed #F9FFAA; 
   padding: 10px;
-  margin-top: 15px;
-  background-color: rgba(249,255,170,0.5);
+  margin-top: 95px;
+  background-color: rgba(244,227,184,1.0);
 }
 
 .formNew h1{
