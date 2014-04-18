@@ -16,8 +16,8 @@ User.first.trips << trips[4]
 
 activities =[]
 
-activities << Activity.create(name: 'Metreon', address: '4th and Mission Street, San Francisco, CA', phone: 'N/A', biz_url: "https://www.facebook.com", thumbnail_photo: "http://i.imgur.com/UpJfjiF.gif")
-activities << Activity.create(name: 'Westfield', address: '5th and Market Street, San Francisco, CA', phone: 'N/A', biz_url: "https://www.google.com", thumbnail_photo: "http://i.imgur.com/UpJfjiF.gif")
+activities << Activity.create(name: 'Metreon', address: '4th and Mission Street, San Francisco, CA', display_phone: 'N/A', biz_url: "https://www.facebook.com", thumbnail_photo: "http://i.imgur.com/UpJfjiF.gif")
+activities << Activity.create(name: 'Westfield', address: '5th and Market Street, San Francisco, CA', display_phone: 'N/A', biz_url: "https://www.google.com", thumbnail_photo: "http://i.imgur.com/UpJfjiF.gif")
 
 trips[0].activities << activities[0]
 trips[0].activities << activities[1]

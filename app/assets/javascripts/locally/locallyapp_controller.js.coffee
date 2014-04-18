@@ -20,21 +20,37 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
           AuthService.setUserAuthenticated(true, data.success)
           $location.path('/trips')
         )
-
     $scope.createUser = () ->
       console.log($scope.newCredentials)
 
   ])
 
+locallyAppCtrls.controller("navBarCtrl", ["$scope", "AuthService", "$location", "$http",
+  ($scope, AuthService, $location, $http) ->
+    $scope.signOut = () ->
+      $http({
+        method: "DELETE"
+        url: "/sessions/" + $scope.currentUser.id + ".json"
+        }).success((data)->
+          AuthService.setUserAuthenticated(false, {})
+          console.log(data.success)
+          $location.path("/")
+          )
+  ])
 
-locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", "limitToFilter", "$http", "$interval"
-  ($scope, Api, AuthService, $http, limitToFilter, $interval) ->
+
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http", "limitToFilter", "$http", "$interval", "$location", "$routeParams",
+  ($scope, Api, AuthService, $http, limitToFilter, $interval, $location, $routeParams) ->
 
     $scope.currentTrip = {}
 
+    $scope.currentActivity = {}
+
     $scope.newtrip = {}
 
-    $scope.newActivity ={}
+    $scope.newActivity = {}
+
+    $scope.currentUser = AuthService.getCurrentUser()
 
     $scope.showAllTrips = true
 
@@ -50,6 +66,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.tripClick= (trip) ->
       $scope.activities = {}
       $scope.yelpResult = {}
+      $scope.activityShow = false
       $scope.loading = true
       $scope.messageShow = false
       $scope.activitiesShow = true
@@ -134,6 +151,44 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
     $scope.cities = (cityName) ->
       $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=JSON_CALLBACK &filter=US&q=" + cityName).then (response) ->
         limitToFilter response.data, 15
+
+    $scope.activityClick = (activity) ->
+      $scope.yelpShow = false
+      $scope.activityShow = true
+      $scope.singleActivity = activity
+      $scope.currentActivity = activity
+
+      if activity.completed is true
+        $scope.done = true
+      else
+        $scope.done = false
+
+    $scope.yelpRefresh = () ->
+      $scope.yelpResult = {}
+      $scope.loading = true
+      Api.Yelp.query({"destination": $scope.currentTrip.destination},(data)->
+        $scope.loading = false
+        $scope.yelpResult = data
+        )
+
+    $scope.activityComplete = (activity) ->
+      if $scope.done is false
+        $scope.done = true
+      else
+        $scope.done = false
+
+      indexOfActivity = $scope.activities.indexOf activity
+      $scope.activities[indexOfActivity].completed = $scope.done
+
+      $http({
+        method: "PATCH"
+        url:"/trips/" + $scope.currentTrip.id + "/activities/" + activity.id + ".json"
+        data: {"activity": activity}
+        }).success((data)->
+          console.log(data.success)
+          )
+      
+
 
   ])
 

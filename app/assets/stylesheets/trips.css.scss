@@ -126,7 +126,7 @@ nav{
 
 .tripbtn1 {
   color: #fff;
-  background: #123078;
+  background: rgba(1,152,220,0.5);
 }
 
 .tripbtn1:active {
@@ -134,16 +134,11 @@ nav{
 }
 
 .tripbtn2{
-  background: #459979;
+  box-shadow: 0 0 40px aqua;
 }
 
 .tripbtn-1d {
-  border: 2px dashed #123078;
-}
-
-.tripbtn-1d:hover {
-  background: transparent;
-  color: #fff;
+  border: 2px dashed #0198DC;
 }
 
 .tripbtn-2 {

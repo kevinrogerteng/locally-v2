@@ -2,6 +2,6 @@
 
 
 <div ng-repeat="trip in trips">
-   <button ng-class="{tripbtn2: currentTrip == trip; tripbtn2d:currentTrip == trip }"class='tripbtn tripbtn1 tripbtn-1d' ng-click="tripClick(trip)"> {{trip.name}} <br>
+   <button ng-class="{tripbtn2: currentTrip == trip}"class='tripbtn tripbtn1 tripbtn-1d' ng-click="tripClick(trip)"> {{trip.name}} <br>
     {{trip.destination}}</button>
 </div>

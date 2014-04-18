@@ -6,7 +6,7 @@
 
      <div ng-repeat="activity in activities">
 
-       <button class="activitybtn activitybtn1 activitybtn-1d" ng-click="activityClick($index)">
+       <button class="activitybtn activitybtn1 activitybtn-1d" ng-click="activityClick(activity)">
 
        <div class='pull-left'>
         <img src={{activity.thumbnail_photo}} class=' actimg media-object img-circle' /> 

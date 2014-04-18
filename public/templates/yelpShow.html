@@ -2,8 +2,9 @@
 
     <div class='searchfield'>
       <form>
-        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button> <button class="btn btn-warning"><i class="fa fa-refresh"></i></button>
+        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button> 
       </form> 
+      <button class="btn btn-warning" ng-click="yelpRefresh()"><i class="fa fa-refresh"></i></button>
     </div> <!--searchfield -->
 
     <div ng-show="loading" class="loading">

@@ -31,7 +31,7 @@
 
 .activitybtn1 {
   color: #fff;
-  background: #226fbe;
+  background: rgba(36,77,97, 0.5);
 }
 
 .activitybtn1:active {
@@ -42,14 +42,45 @@
   border: 2px dashed #226fbe;
 }
 
-.activitybtn-1d:hover {
-  background: transparent;
-  color: #fff;
-}
-
 .actimg {
   height:100px;
   width: 100px;
   align:center;
   padding: 3px;
+}
+
+.activity{
+  font-family: 'Love Ya Like A Sister', cursive;
+  width: 100%;
+  font-size: 1.5em;
+  padding:15px;
+  margin: 15px 30px;
+  border: 2px dashed #c0392b;
+  color: #fff;
+}
+
+.activity a{
+  float: right;
+}
+
+.activityshowimg{
+  text-align: center;
+}
+.activity img {
+  height:100px;
+  width: 100px;
+}
+
+.marker{
+  float: right;
+}
+
+.activityDone {
+  background: rgba(77,140,87,0.5);
+  border: 2px dashed #4D8C57;
+  color: #fff;
+}
+
+.selectedActivity {
+  box-shadow: 0 0 40px aqua;
 }
