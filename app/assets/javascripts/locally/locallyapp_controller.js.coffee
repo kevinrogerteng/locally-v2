@@ -100,6 +100,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http",
 
     $scope.createTrip = ()->
       $scope.currentTrip = {}
+      $scope.activityShow = false
       $scope.newTrip = true
       $scope.yelpShow = false
       $scope.activitiesShow = false
