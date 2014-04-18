@@ -1,0 +1,22 @@
+<button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createActivity()">New Activity <i class="fa fa-plus"></i></button>
+
+    <div ng-show="loading" class="loading">
+        <img src="{{loader.url}}" />
+    </div>
+
+     <div ng-repeat="activity in activities">
+
+       <button class="activitybtn activitybtn1 activitybtn-1d" ng-click="activityClick(activity)">
+
+       <div class='pull-left'>
+        <img src={{activity.thumbnail_photo}} class=' actimg media-object img-circle' /> 
+      </div>
+
+      <div class='media-body'>
+        <h4>{{activity.name}}</h4>
+        {{activity.address}}
+      </div>
+
+      </button>
+
+    </div>

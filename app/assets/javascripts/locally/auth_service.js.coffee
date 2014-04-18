@@ -15,4 +15,6 @@ authService.service("AuthService", [
     @getCurrentUser = () ->
       return @currentUser
     return
+
+
   ])

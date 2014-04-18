@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140409173143) do
     t.string   "name"
     t.string   "address"
     t.text     "description"
-    t.string   "phone"
+    t.string   "display_phone"
     t.string   "biz_url"
     t.string   "thumbnail_photo"
     t.string   "rating"

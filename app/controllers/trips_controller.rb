@@ -13,8 +13,7 @@ class TripsController < ApplicationController
   end
 
   def create
-
-    new_trip = Trip.new(trip_params)
+    new_trip = current_user.trips.new(trip_params)
 
     if new_trip.save
       render :json => {

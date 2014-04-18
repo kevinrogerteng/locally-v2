@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-
+    params[:activity][:thumbnail_photo] = "http://i.imgur.com/tCDTHfY.gif" if params[:activity][:thumbnail_photo] == nil
     trip = Trip.find(params[:trip_id])
     new_activity = trip.activities.new(activity_params)
 
@@ -57,7 +57,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :address, :phone, :biz_url, :thumbnail_photo, :rating, :yid, :completed )
+    params.require(:activity).permit(:name, :description, :address, :display_phone, :biz_url, :thumbnail_photo, :rating, :yid, :completed )
   end
   
 end

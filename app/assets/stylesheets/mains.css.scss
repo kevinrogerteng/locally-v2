@@ -1,7 +1,16 @@
 .main-logo {
+  color: #fff;
   text-align: center;
   font-family: 'Lobster', cursive;
   font-size: 2em;
+}
+
+.aboutme {
+  float: right;
+  margin-top: 10px;
+}
+.fa-github-square{
+  color: #fff;
 }
 
 .usersign {
@@ -9,10 +18,42 @@
   padding: 10px;
 }
 
+.sign-in{
+  font-size: 30px;
+  margin: 10px;
+}
+
+.sign-in a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sign-in a:hover{
+  color: #C4D6E0;
+}
+
 body {
-  background-image: url(food.png)
+  background-image: url(binding_dark.png);
 }
 
 .logo {
   font-size: 4em;
+  text-shadow: 5px 4px #AEB5B8;
+}
+
+.userForm{
+  margin-top: 10px;
+  color: #fff;
+}
+
+.userForm label {
+  margin-top: 15px;
+}
+
+a {
+  color: #fff;
+}
+
+.btn.cancel:hover{
+  background-color:red
 }

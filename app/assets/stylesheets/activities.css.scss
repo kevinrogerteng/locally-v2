@@ -1,3 +1,91 @@
-// Place all the styles related to the activities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.activitybtn{
+  border: none;
+  font-family: 'Love Ya Like A Sister', cursive;
+  width: 100%;
+  font-size: inherit;
+  color: #fff;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  padding:15px 65px;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.activitybtn:after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
+}
+
+.activitybtn1 {
+  color: #fff;
+  background: rgba(36,77,97, 0.5);
+}
+
+.activitybtn1:active {
+  top: 2px;
+}
+
+.activitybtn-1d {
+  border: 2px dashed #226fbe;
+}
+
+.actimg {
+  height:100px;
+  width: 100px;
+  align:center;
+  padding: 3px;
+}
+
+.activity{
+  font-family: 'Love Ya Like A Sister', cursive;
+  width: 100%;
+  font-size: 1.5em;
+  padding:15px;
+  margin: 15px 30px;
+  border: 2px dashed #c0392b;
+  background: rgba(192, 57, 43,0.3);
+  color: #fff;
+}
+
+.activity a{
+  float: right;
+}
+
+.activityshowimg{
+  text-align: center;
+}
+.activity img {
+  height:100px;
+  width: 100px;
+}
+
+.marker{
+  float: right;
+}
+
+.activityDone {
+  background: rgba(77,140,87,0.5);
+  border: 2px dashed #4D8C57;
+  color: #fff;
+}
+
+.selectedActivity {
+  box-shadow: 0 0 40px aqua;
+}
+
+input[type=checkbox]{
+  background: none;
+}

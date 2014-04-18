@@ -1,3 +1,60 @@
-// Place all the styles related to the yelp controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+*::-webkit-input-placeholder {
+    font-size: inherit ;
+    color: #fff;
+}    
+*:-moz-placeholder {
+    color: #fff;
+}
+*::-moz-placeholder {
+    color: #fff;
+}    
+*:-ms-input-placeholder {
+    color: #fff;
+}
+
+.searchfield input[type=text]{
+  outline: none;
+  background: none;
+  border: none;
+  display: inline-block;
+}
+
+.searchfield{
+  text-align: right;
+  width: 100%;
+  background-color: rgba(192, 57, 43,0.3);
+  border: 2px dashed #c0392b;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: inherit;
+  color: #fff;
+  display: inline-block;
+  padding:7px 65px;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.yelpBox{
+  font-family: 'Love Ya Like A Sister', cursive;
+  background-color: rgba(192, 57, 43,0.3);
+  border: 2px dashed #c0392b;
+  padding: 5px;
+  margin: 15px 30px;
+  color: #fff;
+  width: 100%;
+}
+
+.add-activity{
+  margin-right: 10px
+}
+
+.fa-plus-square:hover{
+  cursor: pointer;
+  color: #ed9c28;
+}
