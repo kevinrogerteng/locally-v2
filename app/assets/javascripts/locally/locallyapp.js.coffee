@@ -6,7 +6,7 @@ locallyApp = angular.module("locallyApp", [
   'auth'
   ])
 
-locallyApp.config(["$httpProvider",($httpProvider)->
+locallyApp.config(["$httpProvider", ($httpProvider)->
      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 ])
 

@@ -39,8 +39,8 @@ locallyAppCtrls.controller("navBarCtrl", ["$scope", "AuthService", "$location", 
   ])
 
 
-locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http", "limitToFilter", "$http", "$interval", "$location", "$routeParams",
-  ($scope, Api, AuthService, $http, limitToFilter, $interval, $location, $routeParams) ->
+locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http", "limitToFilter", "$http", "$interval", "$location"
+  ($scope, Api, AuthService, $http, limitToFilter, $interval, $location) ->
 
     $scope.currentTrip = {}
 
