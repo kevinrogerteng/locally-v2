@@ -40,8 +40,6 @@ class YelpsController < ApplicationController
         results.push object
     end
 
-    
-
     if results.nil? || results == "" || results.empty?
       render :json => {}
     else 
