@@ -2009,6 +2009,7 @@ select[multiple].input-lg {
   border: 2px dashed #fff;
   background: none;
   border-radius: 4px;
+  color: #fff;
 }
 .btn:focus,
 .btn:active:focus,
@@ -3493,7 +3494,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px dashed #fff;
 }
 .nav-tabs > li {
   float: left;
@@ -3511,11 +3512,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555;
+  color: #fff;
   cursor: default;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
+  background-color: none;
+  border: 2px dashed #fff;
+  border-bottom-color: 2px dashed #fff;
 }
 .nav-tabs.nav-justified {
   width: 100%;
