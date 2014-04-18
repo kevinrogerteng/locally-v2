@@ -4,7 +4,7 @@
 </nav>
 
 <div class='row'>
-  <div class='col-md-4' ng-include="templates[0].url">
+  <div class='col-md-4' ng-include="templates[0].url" ng-show="showAllTrips">
   </div> <!-- templates 0-->
 
   <div class='col-md-4 formNew' ng-show='newTrip' ng-include="templates[1].url">
@@ -15,7 +15,7 @@
 
   </div> <!-- templates 2-->
 
-  <div class='col-md-4 formNew' ng-show='newActivityForm' ng-include="templates[3]">
+  <div class='col-md-4 formNew' ng-show='newActivityForm' ng-include="templates[3].url">
   
   </div> <!-- templates 3-->
 

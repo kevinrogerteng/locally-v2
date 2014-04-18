@@ -36,11 +36,12 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
 
     $scope.newActivity ={}
 
-    $scope.activitiesShow = true
+    $scope.showAllTrips = true
 
     $scope.close = () ->
       $scope.newActivityForm = false
-      $scope.yelpShow = true
+      $scope.showAllTrips = true
+      $scope.activitiesShow = false
 
     Api.Trips.get((data)->
       $scope.trips = data.trips
@@ -89,6 +90,7 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api","AuthService", "$http", 
       $scope.newActivityForm = false
 
     $scope.createActivity = ()->
+      $scope.showAllTrips = false
       $scope.newActivityForm = true
       $scope.yelpShow = false
 
