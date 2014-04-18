@@ -186,7 +186,6 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http",
         url:"/trips/" + $scope.currentTrip.id + "/activities/" + activity.id + ".json"
         data: {"activity": activity}
         }).success((data)->
-          console.log(data.success)
           )
       
 
