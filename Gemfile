@@ -2,17 +2,22 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.2'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
-gem 'angularjs-rails', '~> 1.2.16'
 gem "oauth", "~> 0.4.7"
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'rails_12factor', group: :production
+group :assets do
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'jquery-rails'
+  gem 'turbolinks'
+  gem 'jbuilder', '~> 1.2'
+  gem 'angularjs-rails', '~> 1.2.16'
+  gem 'sass-rails', '~> 4.0.2'
+  gem 'uglifier', '>= 1.3.0'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :doc do
   gem 'sdoc', require: false
