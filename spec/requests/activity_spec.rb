@@ -57,19 +57,19 @@ describe "Activity" do
     describe 'POST JSON with trips/trip_id/activities.json on CREATE method' do
 
       it 'should be successful' do
-        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', phone: 'some phone'}
+        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', display_phone: 'some display_phone'}
         response.status.should == 200
       end
 
       it 'should return the new activity as JSON' do
-        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', phone: 'some phone'}
+        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', display_phone: 'some display_phone'}
         result = JSON.parse(response.body)
         result['new_activity']['name'].should eq("Activity Name")
       end
 
 
       it 'should return a success message' do
-        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', phone: 'some phone'}
+        post trip_activities_path @trip, activity: {name: "Activity Name", description: "some description", address: 'some address', display_phone: 'some display_phone'}
         result = JSON.parse(response.body)
         result['success'].should eq("Activity Created!")
 

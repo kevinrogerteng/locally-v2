@@ -17,7 +17,7 @@ FactoryGirl.define do
     f.name {Faker::Lorem.word}
     f.description {Faker::Lorem.sentence}
     f.address {Faker::Address.street_name}
-    f.phone {Faker::PhoneNumber.phone_number}
+    f.display_phone {Faker::PhoneNumber.phone_number}
   end
 
 end
