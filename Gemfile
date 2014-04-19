@@ -1,24 +1,18 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
-
 gem 'pg'
-
 gem 'sass-rails', '~> 4.0.2'
-
 gem 'uglifier', '>= 1.3.0'
-
 gem 'coffee-rails', '~> 4.0.0'
-
 gem 'jquery-rails'
-
 gem 'turbolinks'
-
 gem 'jbuilder', '~> 1.2'
-
 gem 'angularjs-rails', '~> 1.2.16'
-
 gem "oauth", "~> 0.4.7"
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'rails_12factor', group: :production
 
 group :doc do
   gem 'sdoc', require: false
@@ -36,16 +30,3 @@ group :test, :development do
   gem 'dotenv-rails'
 end
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
-gem 'rails_12factor', group: :production
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
