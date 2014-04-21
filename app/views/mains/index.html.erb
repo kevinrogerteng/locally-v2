@@ -1,5 +1,7 @@
 <div class="container">
-  <div class='main-logo'>
+  <div class='main-logo row'>
+  <div class='col-md-4'></div>
+    <div class='col-md-4'>
       <span class='logo'>Locally</span><br>
       version 2.0<br>
       Travel, Eat and Be a Local!<br>
@@ -9,11 +11,13 @@
     <div ng-hide='signShow' class="sign-in">
       <a ng-click="signShow = !signShow">Sign In / Sign Up</a>
     </div>
+    </div>
+    <div class='col-md-4'></div>
   </div>
 
   <div class='usersign row' ng-show="signShow">
-  <div class='col-md-4'></div>
-  <tabset class='col-md-4'> 
+  <div class='col-md-3'></div>
+  <tabset class='col-md-6'> 
       <tab heading='Sign In'>
           <form ng-submit="attemptLogin()">
             <div class="form-group userForm" >
@@ -51,6 +55,6 @@
             </form>
       </tab> 
   </tabset> 
-  <div class='col-md-4'></div>
+  <div class='col-md-3'></div>
   </div>
 </div>
