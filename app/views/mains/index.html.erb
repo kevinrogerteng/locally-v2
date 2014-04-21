@@ -1,9 +1,11 @@
 <div class="container">
-  <div class='aboutme'><a href="https://github.com/kevinrogerteng/locally-v2" target="_blank"><i class="fa fa-github-square fa-4x"></i></a></div>
   <div class='main-logo'>
       <span class='logo'>Locally</span><br>
+      version 2.0<br>
       Travel, Eat and Be a Local!<br>
-      Powered by Yelp
+      Powered by Yelp<br>
+      <div class='aboutme'><a href="https://github.com/kevinrogerteng/locally-v2" target="_blank"><i class="fa fa-github fa-2x"></i></a></div>
+      <div class='aboutme'><a href="http://kevinrogerteng.github.io/" target="_blank"><i class="fa fa-smile-o fa-2x"></i></a></div>
     <div ng-hide='signShow' class="sign-in">
       <a ng-click="signShow = !signShow">Sign In / Sign Up</a>
     </div>
@@ -15,9 +17,9 @@
       <tab heading='Sign In'>
           <form ng-submit="attemptLogin()">
             <div class="form-group userForm" >
-              <label>Email address</label>
+              <label>Email address (kevin@gmail.com)</label>
               <input type="email" class="form-control" placeholder="Enter email" ng-model="credentials.email">
-              <label>Password</label>
+              <label>Password (123456)</label>
               <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password">
             </div>
             <button type="submit" class="btn">Submit</button>

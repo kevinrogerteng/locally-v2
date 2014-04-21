@@ -6,9 +6,13 @@
 }
 
 .aboutme {
-  float: right;
-  margin-top: 10px;
+  display: inline-block;
 }
+
+.aboutme a:hover{
+  color: #ee8e85;
+}
+
 .fa-github-square{
   color: #fff;
 }
