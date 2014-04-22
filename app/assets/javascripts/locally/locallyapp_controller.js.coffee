@@ -63,6 +63,10 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http",
       $scope.trips = data.trips
       )
 
+    $scope.closeMarker = () ->
+      $scope.activityShow = false
+      $scope.yelpShow = true
+
     $scope.tripClick= (trip) ->
       $scope.activities = {}
       $scope.yelpResult = {}

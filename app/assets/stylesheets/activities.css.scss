@@ -73,7 +73,7 @@
 }
 
 .marker{
-  float: right;
+  float: left;
 }
 
 .activityDone {
@@ -88,4 +88,8 @@
 
 input[type=checkbox]{
   background: none;
+}
+
+.activity.fa {
+  float: right;
 }
