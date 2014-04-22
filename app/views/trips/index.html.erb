@@ -4,6 +4,7 @@
 </nav>
 
 <div class='row'>
+
   <div class='col-md-4' ng-include="templates[0].url" ng-show="showAllTrips">
   </div> <!-- templates 0-->
 
@@ -11,33 +12,7 @@
 
   </div> <!-- templates 1-->
 
-  <div class='col-md-4' ng-show="activitiesShow" >
-
-  <!-- ng-include="templates[2].url" -->
-
-
-  <button class="tripbtn tripbtn-2 tripbtn-2d" ng-click="createActivity()">New Activity <i class="fa fa-plus"></i></button>
-
-    <div ng-show="loading" class="loading">
-        <img src="{{loader.url}}" />
-    </div>
-
-     <div ng-repeat="activity in activities">
-
-       <button ng-class="{activityDone: activity.completed == true, selectedActivity: currentActivity == activity}"class="activitybtn activitybtn1 activitybtn-1d" ng-click="activityClick(activity)">
-
-       <div class='pull-left'>
-        <img src={{activity.thumbnail_photo}} class=' actimg media-object img-circle' /> 
-      </div>
-
-      <div class='media-body'>
-        <h4>{{activity.name}}</h4>
-        {{activity.address}}
-      </div>
-
-      </button>
-
-    </div>
+  <div class='col-md-4' ng-show="activitiesShow" ng-include="templates[2].url" >
 
   </div> <!-- templates 2-->
 
@@ -45,57 +20,11 @@
   
   </div> <!-- templates 3-->
 
- <div class='col-md-4' ng-show="yelpShow">
- <!-- ng-include="templates[4].url -->
+  <div class='col-md-4' ng-show="yelpShow" ng-include="templates[4].url">
 
+  </div><!-- yelpShow-->
 
-
-    <div class='searchfield'>
-      <form>
-        <input type="text" placeholder="Search for places" ng-model="yelp.search"><button type="submit" class='btn btn-danger'  ng-click="yelpSearch()"><i class="fa fa-search"></i></button> 
-      </form> 
-      <!-- <button class="btn btn-warning" ng-click="yelpRefresh()"><i class="fa fa-refresh"></i></button> -->
-    </div> <!--searchfield -->
-
-    <div ng-show="loading" class="loading">
-        <img src="{{loader.url}}" />
-    </div> <!-- loading-->
-
-      <div ng-repeat="result in yelpResult" class='media yelpBox'>
-
-          <div class='pull-left'>
-            <img src={{result.thumbnail_photo}} class='media-object img-circle' />
-          </div> <!--pull-left -->
-
-          <div class='pull-right'>
-            ({{result.rating}} /5)
-          </div> <!-- pull-right -->
-
-          <div class='media-body'>
-            <h4>{{result.name}}</h4>
-            {{result.address}}<br>
-            <i class="fa fa-plus-square add-activity" ng-click="addToActivity(result, currentTrip)"></i>
-            <a href="{{result.biz_url}}" target="_blank">More Info</a>
-          </div> <!-- media-body -->
-
-      </div> <!--yelpBox-->
-
-
- </div><!-- yelpShow-->
-
- <div class='col-md-4' ng-show="activityShow">
-
-  <div class="activity">
-    <span class='marker'>Mark Complete: <input type="checkbox" ng-model='done' ng-click="activityComplete(singleActivity)"></span>
-    <i class="fa fa-times-circle fa-1x" ng-click="closeMarker()"></i><br>
-    <div class="activityshowimg"><img class="img-circle"src={{singleActivity.thumbnail_photo}} />
-    <h1>{{singleActivity.name}} {{singleActivity.rating}} / 5</h1></div>
-    Address: {{singleActivity.address}}<br>
-    Phone: {{singleActivity.display_phone}}<br>
-    <a href="{{singleActivity.biz_url}}"> more info </a><br>
-    {{singleActivity.description}}
-  </div>
-
- </div><!-- yelpShow-->
+  <div class='col-md-4' ng-show="activityShow" ng-include="templates[6].url">
+  </div> <!--activity show-->
 
 </div> <!--row close-->

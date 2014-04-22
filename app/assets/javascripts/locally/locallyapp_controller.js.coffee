@@ -129,7 +129,14 @@ locallyAppCtrls.controller('tripCtrl', ["$scope", "Api", "AuthService", "$http",
         )
 
 
-    $scope.templates = [{url: "/templates/showTrips.html"}, {url: "/templates/newTripForm.html"}, {url: "/templates/showActivitiesstuff.html"},{url: "/templates/newActivityForms.html"}, {url: "/templates/yelpShow.html"}, {url: "/templates/userSign.html"}]
+    $scope.templates = [{url: "/templates/showTrips.html"}, 
+      {url: "/templates/newTripForm.html"}, 
+      {url: "/templates/showActivitiesstuff.html"},
+      {url: "/templates/newActivityForms.html"}, 
+      {url: "/templates/showYelp.html"}, 
+      {url: "/templates/userSign.html"},
+      {url: "/templates/activityShow.html"}
+      ]
     $scope.loader = {url: "/images/load.gif"}
 
     $scope.submitTrip = () ->

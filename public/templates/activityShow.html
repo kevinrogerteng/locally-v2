@@ -1,0 +1,11 @@
+<div class="activity">
+    <span class='marker'>Mark Complete: <input type="checkbox" ng-model='done' ng-click="activityComplete(singleActivity)"></span>
+    <i class="fa fa-times-circle fa-1x" ng-click="closeMarker()"></i><br>
+    <div class="activityshowimg"><img class="img-circle"src={{singleActivity.thumbnail_photo}} />
+    <h1>{{singleActivity.name}} {{singleActivity.rating}} / 5</h1></div>
+    Address: {{singleActivity.address}}<br>
+    Phone: {{singleActivity.display_phone}}<br>
+    <a href="{{singleActivity.biz_url}}"> more info </a><br>
+    {{singleActivity.description}}
+  </div>
+
