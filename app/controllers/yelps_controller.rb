@@ -21,7 +21,7 @@ class YelpsController < ApplicationController
 
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
     access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-    path = "/v2/search?term=#{restaurant}&location=#{location}&limit=5&offset=#{offset_number}"
+    path = "/v2/search?term=#{restaurant}&location=#{location}&limit=8&offset=#{offset_number}"
     parsed_results = JSON.parse(access_token.get(path).body)["businesses"]
 
     results = []

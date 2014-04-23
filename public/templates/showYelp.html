@@ -9,21 +9,21 @@
     <img src="{{loader.url}}" />
 </div> <!-- loading-->
 
-<div ng-repeat="result in yelpResult" class='media yelpBox'>
+  <div ng-repeat="result in yelpResult" class='media yelpBox'>
 
-    <div class='pull-left'>
-      <img src={{result.thumbnail_photo}} class='media-object img-circle' />
-    </div> <!--pull-left -->
+      <div class='pull-left'>
+        <img src={{result.thumbnail_photo}} class='media-object img-circle' />
+      </div> <!--pull-left -->
 
-    <div class='pull-right'>
-      ({{result.rating}} /5)
-    </div> <!-- pull-right -->
+      <div class='pull-right'>
+        ({{result.rating}} /5)
+      </div> <!-- pull-right -->
 
-    <div class='media-body'>
-      <h4>{{result.name}}</h4>
-      {{result.address}}<br>
-      <i class="fa fa-plus-square add-activity" ng-click="addToActivity(result, currentTrip)"></i>
-      <a href="{{result.biz_url}}" target="_blank">More Info</a>
-    </div> <!-- media-body -->
+      <div class='media-body'>
+        <h4>{{result.name}}</h4>
+        {{result.address}}<br>
+        <i class="fa fa-plus-square add-activity" ng-click="addToActivity(result, currentTrip)"></i>
+        <a href="{{result.biz_url}}" target="_blank">More Info</a>
+      </div> <!-- media-body -->
 
-</div> <!--yelpBox-->
+  </div> <!--yelpBox-->
