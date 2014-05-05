@@ -1,7 +1,7 @@
 locallyAppCtrls = angular.module("locallyAppCtrls", [])
 
-locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthService"
-  ($scope, Api, $location, AuthService) ->
+locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthService", "$http"
+  ($scope, Api, $location, AuthService, $http) ->
 
     $scope.credentials = {}
 
@@ -21,7 +21,14 @@ locallyAppCtrls.controller('userCtrl', ["$scope", "Api", "$location", "AuthServi
           $location.path('/trips')
         )
     $scope.createUser = () ->
-      console.log($scope.newCredentials)
+      $http({
+        method: "POST",
+        url: "/users"
+        data: {"user":$scope.newCredentials}
+      }).success((data)->
+          AuthService.setUserAuthenticated(true, data.success)
+          $location.path('/trips')
+        )
 
   ])
 
