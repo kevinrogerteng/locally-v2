@@ -1,15 +1,13 @@
 class ActivitiesController < ApplicationController
 
   def index
-
     trip = Trip.find(params[:trip_id])
     activities = trip.activities
     render :json => {:trip => trip, :activities => activities}
-
   end
 
   def create
-    params[:activity][:thumbnail_photo] = "http://i.imgur.com/tCDTHfY.gif" if params[:activity][:thumbnail_photo] == nil
+    params[:activity][:thumbnail_photo] = "/move/this/to/assets" if params[:activity][:thumbnail_photo] == nil
     trip = Trip.find(params[:trip_id])
     new_activity = trip.activities.new(activity_params)
 
@@ -19,23 +17,21 @@ class ActivitiesController < ApplicationController
         :success => "Activity Created!" 
       }
     end
-
   end
 
   def show
-
-    trip = Trip.find(params[:trip_id])
-    activity = trip.activities.find(params[:id])
-
-    render :json => {:trip => trip, :activity => activity}
-
+  # trip = Trip.find(params[:trip_id])
+  # activity = trip.activities.find(params[:id])
+    render :json => {
+      :trip => Trip.find(params[:trip_id]),
+      :activity => trip.activities.find(params[:id])
+      }
+      # or activity => Trip.find(params[:trip_id]).trip.activities.find(params[:id])
   end
 
   def update
-
     activity = Trip.find(params[:trip_id]).activities.find(params[:id])
     activity.update_attributes(activity_params)
-
     render :json => {
       :updates => activity,
       :success => 'Activity Updated!'
@@ -43,8 +39,7 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-
-    activity = activity = Trip.find(params[:trip_id]).activities.find(params[:id])
+    activity = activity = Trip.find(params[:trip_id]).activities.find(params[:id]) # <-activity=activity?
     if activity.destroy
 
       render :json => {
