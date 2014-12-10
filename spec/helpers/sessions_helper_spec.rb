@@ -11,7 +11,6 @@ require 'spec_helper'
 #   end
 # end
 describe SessionsHelper do
-
   # describe "#sign_in" do
   
   #   it 'sets current user to user signed in' do

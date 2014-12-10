@@ -2,9 +2,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-
-
-
     if user.save
       render :json => { 
         :success => "Welcome!",
@@ -15,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     user = User.find(params[:id])
     render :json => user.as_json(:except=> [:user_id, :password_digest]) 
   end
