@@ -1,9 +1,7 @@
 class YelpsController < ApplicationController
-
     include YelpsHelper
 
     def yelp_search
-
         if params[:restaurant] != nil
             restaurant = params[:restaurant].gsub(" ", "+")
         else
@@ -17,7 +15,6 @@ class YelpsController < ApplicationController
         else 
           render :json => results
         end
-
     end
-
+    
 end
